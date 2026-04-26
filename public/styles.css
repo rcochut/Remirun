@@ -1,0 +1,80 @@
+:root {
+  color-scheme: dark;
+  --bg: #0a0d14;
+  --panel: #111826;
+  --soft: #1a2334;
+  --text: #e7edf7;
+  --muted: #96a3bb;
+  --accent: #7a9cff;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: radial-gradient(circle at top right, #1a2340, var(--bg));
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+.layout { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+.sidebar { padding: 28px; border-right: 1px solid #1f2b42; background: rgba(10, 13, 20, 0.72); }
+.sidebar h1 { margin: 0; }
+.sidebar nav { margin-top: 30px; display: grid; gap: 10px; }
+.sidebar a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+.sidebar a.active,
+.sidebar a:hover { background: var(--soft); color: var(--text); }
+
+.main { padding: 26px; }
+.muted { color: var(--muted); }
+.cards {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+.card {
+  background: linear-gradient(180deg, #161f31, #121a2a);
+  border: 1px solid #23304a;
+  border-radius: 16px;
+  padding: 16px;
+}
+.card .label { color: var(--muted); font-size: 12px; }
+.card .value { font-size: 32px; font-weight: 700; margin-top: 6px; letter-spacing: .3px; }
+.card .sub { margin-top: 6px; color: var(--muted); font-size: 12px; }
+
+.panel {
+  margin-top: 18px;
+  background: var(--panel);
+  border: 1px solid #23304a;
+  border-radius: 16px;
+  padding: 16px;
+}
+.list { display: grid; gap: 10px; }
+.item {
+  background: var(--soft);
+  border: 1px solid #2a3855;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.item strong { display: block; }
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(122, 156, 255, 0.18);
+  color: #bfd0ff;
+  font-size: 11px;
+}
+
+@media (max-width: 840px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { border-right: 0; border-bottom: 1px solid #1f2b42; }
+}
